@@ -12,17 +12,17 @@ module.exports = {
   },
 
   // modules
-  // module: {
-  //   rules: [
-  //     {
-  //       test: /\.css$/,
-  //       use: [
-  //         'style-loader',
-  //         'css-loader'
-  //       ]
-  //     }
-  //   ]
-  // },
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"          
+        }
+      }
+    ]
+  },
 
   devServer: {
     contentBase: path.resolve(__dirname, './dist'),

@@ -8,11 +8,10 @@
     "watch": "webpack --watch",
     "build": "webpack --progress --colors",
     "start": "webpack-dev-server & npm run watch",
-
     "prebuild": "",
     "release:clean": "rimraf ./dist",
-    "release:copy": "",
-    "release:css": "",
+    "release:copy": "cpx \"./src/**/!(*.js|*.css|*.map)\" ./dist",
+    "release:css": "node-sass --include-path scss ./src/assets/sass/index.scss ./dist/assets/css/style.css --output-style expanded",
     "release:js": "",
     "release": "npm-run-all -s release:clean release:copy -p release:css release:js"
   },
@@ -22,7 +21,8 @@
   "dependencies": {
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
-    "mustache": "^2.3.0"
+    "mustache": "^2.3.0",
+    "vue": "^2.4.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
