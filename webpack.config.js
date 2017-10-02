@@ -2,24 +2,27 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+  	"vender": ['jquery', 'vue'],
+  	"app": './src/assets/js/index.js',
+  },
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    filename: '[name].js',
+    path: path.resolve(__dirname, './dist/assets/js')
   },
 
   // modules
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
-      }
-    ]
-  },
+  // module: {
+  //   rules: [
+  //     {
+  //       test: /\.css$/,
+  //       use: [
+  //         'style-loader',
+  //         'css-loader'
+  //       ]
+  //     }
+  //   ]
+  // },
 
   devServer: {
     contentBase: path.resolve(__dirname, './dist'),
@@ -29,10 +32,10 @@ module.exports = {
   devtool: 'cheap-module-eval-source-map',
 
   // plugins
-  // plugins: [
-  //   new webpack.optimize.UglifyJsPlugin({
-  //     sourceMap: true
-  //   })
-  // ]
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true
+    })
+  ]
 
 };

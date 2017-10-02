@@ -8,10 +8,12 @@
     "watch": "webpack --watch",
     "build": "webpack --progress --colors",
     "start": "webpack-dev-server & npm run watch",
-    "prod" : "webpack --progress --colors --optimize-minimize",
 
-
+    "prebuild": "",
     "release:clean": "rimraf ./dist",
+    "release:copy": "",
+    "release:css": "",
+    "release:js": "",
     "release": "npm-run-all -s release:clean release:copy -p release:css release:js"
   },
   "keywords": [],
