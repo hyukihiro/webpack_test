@@ -1,0 +1,2 @@
+"build:imagemin": "imagemin src/assets/img/ dist/assets/img -p",
+"build:prefix": "postcss --use autoprefixer --no-map --autoprefixer.browsers 'last 2 versions' -b ./dist/assets/css/ ./dist/assets/css/**/*.css",

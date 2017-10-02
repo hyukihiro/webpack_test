@@ -11,11 +11,11 @@ function component() {
 class Cat {
 
   constructor(name) {
-    this.name = name
+    this.name = name;
   }
-  
+
   meow() {
-    alert( this.name + 'はミャオと鳴きました' )
+    alert( this.name + 'またはミャお' )
   }
 }
 

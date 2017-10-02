@@ -18,15 +18,10 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"          
+          loader: "babel-loader"
         }
       }
     ]
-  },
-
-  devServer: {
-    contentBase: path.resolve(__dirname, './dist'),
-    port: 8081
   },
 
   devtool: 'cheap-module-eval-source-map',
