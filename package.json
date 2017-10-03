@@ -22,21 +22,26 @@
   "scripts": {
     "//": "webpack",
     "webpack": "webpack -w -d",
-    "start": "webpack --watch -d & browser-sync start --config bs-config.js",
-    "build:pug": "pug ./src/ -P -o ./dist/",
+    "start": "webpack --watch -d && npm run watch && browser-sync start --config bs-config.js",
     "build:clean": "rimraf ./dist",
-    "build:copy": "cpx \"./src/assets/**/!(*.js|*.css|*.map|*.scss)\" ./dist/assets/",
-    "build:css": "node-sass ./src/assets/sass/ -o ./dist/assets/css/ --recursive --output-style 'expanded'",
+    "build:pug": "pug ./src/ -P -w -o ./dist/",
+    "build:copy": "cpx \"./src/assets/**/!(*.js|*.css|*.map|*.scss|*.png|*.jpg|*.svg|*.gif)\" ./dist/assets/",
+    "build:css": "node-sass ./src/assets/sass/ -o ./dist/assets/css/ --recursive --output-style 'expanded' -w",
+    "comb": "csscomb dist/assets/css --verbose",   
+    "build:imagemin": "imagemin src/assets/img/* -o dist/assets/img/* -p",
+    "build": "npm-run-all -s build:clean -p build:*",
     "bs": "browser-sync start --config bs-config.js",
     "lint:css": "stylelint src/assets/scss/**/*.scss",
     "lint:js": "eslint src/assets/js/**/*.js",
     "production": "npm-run-all -s clean copy -p css pug imagemin js webpack:build"
   },
   "dependencies": {
+    "global": "^4.3.2",
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
     "mustache": "^2.3.0",
-    "vue": "^2.4.4"
+    "vue": "^2.4.4",
+    "yarn": "^1.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.4",
@@ -46,9 +51,11 @@
     "browser-sync": "^2.18.13",
     "cpx": "^1.5.0",
     "css-loader": "^0.28.7",
+    "csscomb": "^4.2.0",
     "eslint": "^4.8.0",
     "eslint-plugin-react": "^7.4.0",
     "html-loader": "^0.5.1",
+    "imagemin": "^5.3.1",
     "imagemin-cli": "^3.0.0",
     "node-sass": "^4.5.3",
     "npm-run-all": "^4.1.1",

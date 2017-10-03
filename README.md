@@ -6,6 +6,9 @@ __grave消す
 imagemin
 csscomb
 venderprefix
+
+
+: sass関連うまくいかないのでwebpackでやってもいいかも
 sassのwatch
 pugのwatch
 productionのスクリプト作る
@@ -14,7 +17,6 @@ codegraphの記事読んでブラッシュ
 新リポジトリ公開用の作る
 npmに公開
 githubに公開
-
 /distをgitignoreに追加
 
 html Uglify
