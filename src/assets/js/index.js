@@ -4,6 +4,9 @@ function component() {
   var element = document.createElement('div');
 
   element.innerHTML = _.join(['hello', 'webpack'], ' ');
+  element.classList.add('hello');
+
+  comsole.log('in');
 
   return element;
 }

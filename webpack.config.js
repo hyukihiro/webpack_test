@@ -1,5 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
+// const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 
 module.exports = {
   entry: {
@@ -13,24 +15,30 @@ module.exports = {
 
   // modules
   module: {
-    loaders: [
+  	rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader"
         }
-      }
-    ]
+      },
+
+			// {
+   //      test: /\.css$/,
+   //      use: [
+   //      	'style-loader',
+   //      	'css-loader'
+   //      ]
+   //    }
+  	]
   },
 
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'inline-source-map',
 
   // plugins
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true
-    })
-  ]
-
+    })  ]
 };
