@@ -1,44 +1,90 @@
 const webpack = require('webpack');
 const path = require('path');
-// const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const WebpackNotifierPlugin = require('webpack-notifier');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+module.exports = [
+  {
+    entry: {
+    	"vender": ['jquery', 'vue'],
+    	"app": './src/assets/js/index.js',
+    },
+    output: {
+      filename: '[name].js',
+      path: path.resolve(__dirname, './dist/assets/js')
+    },
 
-module.exports = {
-  entry: {
-  	"vender": ['jquery', 'vue'],
-  	"app": './src/assets/js/index.js',
-  },
-  output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, './dist/assets/js')
-  },
+    // modules
+    module: {
+    	rules: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: "babel-loader"
+          }
+        },
 
-  // modules
-  module: {
-  	rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
+        {
+          test: /\.pug$/,
+          use: 'pug-loader'
         }
-      },
+    	]
+    },
 
-			// {
-   //      test: /\.css$/,
-   //      use: [
-   //      	'style-loader',
-   //      	'css-loader'
-   //      ]
-   //    }
-  	]
+    devtool: 'inline-source-map',
+
+    // plugins
+    plugins: [
+      new webpack.optimize.UglifyJsPlugin({
+        sourceMap: true
+      }),
+      new ImageminPlugin({
+        pngquant: {
+          quality: '80'
+        }
+      }),
+      new CopyWebpackPlugin([{
+        context: 'src/assets/img',
+        from: '**/*',
+        to: '../../assets/img'
+      }]),
+      new WebpackNotifierPlugin(),
+      new HtmlWebpackPlugin({
+        filename: '../../index.html',
+        template: './src/index.pug'
+      })
+    ]
   },
 
-  devtool: 'inline-source-map',
+  // sass
+  {
+    entry: {
+      bundle: './src/assets/sass/sass.scss'
+    },
+    output: {
+      filename: '[name].css',
+      path: path.resolve(__dirname, './dist/assets/css')
+    },
 
-  // plugins
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true
-    })  ]
-};
+    // modules
+    module: {
+      rules: [
+        {
+          test: /\.scss$/,
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: ['css-loader', 'autoprefixer-loader', 'csscomb-loader', 'sass-loader']
+          })
+        }
+      ]
+    },
+
+    plugins: [
+      new ExtractTextPlugin('bundle.css')
+    ]
+  }
+];
