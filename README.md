@@ -5,10 +5,10 @@
 __grave消す
 npm、webpackのよく使うパスなどを変数化
 imagemin 圧縮できてるか確認
+esdoc
 
 sass prod
 productionのスクリプト作る
-weppackとbsの連携　→　npm run allが使えない。
 bourbon使う
 codegraphの記事読んでブラッシュ
 新リポジトリ公開用の作る
@@ -19,6 +19,8 @@ githubに公開
 html Uglify
 
 
+
+weppackとbsの連携　→　npm run allが使えない。
 imagemin のdistのパス
 venderprefix
 csscomb
