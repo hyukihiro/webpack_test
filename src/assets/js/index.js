@@ -18,11 +18,11 @@ class Cat {
   }
 
   meow() {
-    alert( this.name + 'またはミャお' )
+    alert( this.name + 'こんばんわ' )
   }
 }
 
-let cat = new Cat("俺");
+let cat = new Cat("私");
 cat.meow();
 
 document.body.appendChild(component());
