@@ -2,9 +2,8 @@ const webpack = require('webpack');
 const path = require('path');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = [
   {
@@ -24,7 +23,7 @@ module.exports = [
           test: /\.js$/,
           exclude: /node_modules/,
           use: {
-            loader: "babel-loader"
+            loader: 'babel-loader'
           }
         }
     	]

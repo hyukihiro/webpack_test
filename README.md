@@ -1,27 +1,21 @@
-# webpack_test
+# frontend-template
 
-## Memo
+## A Front-end Develop Starter Kit Made By npm-scripts
 
-__grave消す
-npm、webpackのよく使うパスなどを変数化
-imagemin 圧縮できてるか確認
+### Installation
+$ yarn (or $ npm install)
 
-sass prod
-productionのスクリプト作る
-weppackとbsの連携　→　npm run allが使えない。
-bourbon使う
-codegraphの記事読んでブラッシュ
-新リポジトリ公開用の作る
-npmに公開
-githubに公開
-/distをgitignoreに追加
+### How To Use
+- Development
+$ yarn start (or $ npm start)
+Running the following tasks
 
-html Uglify
+* browser-sync
+* Babel
+* Imagemin
+* Sass/Autoprefixer/Csscomb
 
+Open http://localhost:3000/ and reload changes automatically.
 
-imagemin のdistのパス
-venderprefix
-csscomb
-: sass関連うまくいかないのでwebpackでやってもいいかも
-sassのwatch
-pugのwatch
+- Production
+$ yarn run production (or $ npm run production)

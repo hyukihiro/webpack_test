@@ -1,2 +1,24 @@
-"build:imagemin": "imagemin src/assets/img/ dist/assets/img -p",
-"build:prefix": "postcss --use autoprefixer --no-map --autoprefixer.browsers 'last 2 versions' -b ./dist/assets/css/ ./dist/assets/css/**/*.css",
+__grave消す
+npm、webpackのよく使うパスなどを変数化
+imagemin 圧縮できてるか確認
+
+sass prod
+productionのスクリプト作る
+
+bourbon使う
+codegraphの記事読んでブラッシュ
+新リポジトリ公開用の作る
+npmに公開
+githubに公開
+/distをgitignoreに追加
+
+html Uglify
+
+
+weppackとbsの連携　→　npm run allが使えない。
+imagemin のdistのパス
+venderprefix
+csscomb
+: sass関連うまくいかないのでwebpackでやってもいいかも
+sassのwatch
+pugのwatch
