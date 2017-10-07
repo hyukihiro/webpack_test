@@ -4,7 +4,7 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const WebpackNotifierPlugin = require('webpack-notifier');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = [
   {
@@ -26,11 +26,6 @@ module.exports = [
           use: {
             loader: "babel-loader"
           }
-        },
-
-        {
-          test: /\.pug$/,
-          use: 'pug-loader'
         }
     	]
     },
@@ -52,11 +47,7 @@ module.exports = [
         from: '**/*',
         to: '../../assets/img'
       }]),
-      new WebpackNotifierPlugin(),
-      new HtmlWebpackPlugin({
-        filename: '../../index.html',
-        template: './src/index.pug'
-      })
+      new WebpackNotifierPlugin()
     ]
   },
 

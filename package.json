@@ -25,7 +25,7 @@
     "webpack:watch": "webpack -w -d",
     "start": "run-p webpack:watch build:* bs",
     "build:clean": "rimraf ./dist",
-    "build:copy": "cpx \"./src/assets/**/!(*.js|*.css|*.map|*.scss|*.png|*.jpg|*.svg|*.gif)\" ./dist/assets/",
+    "build:copy": "cpx \"./src/**/!(*.js|*.css|*.map|*.scss|*.png|*.jpg|*.svg|*.gif)\" ./dist/",
     "bs": "browser-sync start --config bs-config.js",
     "lint:css": "stylelint src/assets/scss/**/*.scss",
     "lint:js": "eslint src/assets/js/**/*.js",
