@@ -53,7 +53,7 @@ module.exports = [
   // sass
   {
     entry: {
-      bundle: './src/assets/sass/sass.scss'
+      bundle: './src/assets/sass/index.scss'
     },
     output: {
       filename: '[name].css',
