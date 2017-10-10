@@ -3,9 +3,10 @@
 @import '_button';
 @import 'templete/index';
 
-$red:#FF3399;
+$blue:#FF3399;
 
 h1 {
+	color: $blue;
   display: flex;
   align-items: center;
   justify-content: center;

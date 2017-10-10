@@ -6,7 +6,7 @@ function component() {
   element.innerHTML = _.join(['hello', 'webpack'], ' ');
   element.classList.add('hello');
 
-  console.log('!!!');
+  console.log('aaaa');
 
   return element;
 }
@@ -18,7 +18,7 @@ class Cat {
   }
 
   meow() {
-    alert( this.name + 'こんばんわ');
+    alert( this.name + 'hello');
   }
 }
 
@@ -26,6 +26,6 @@ let cat = new Cat("私");
 cat.meow();
 
 document.body.appendChild(component());
-console.log("%cThis is made by me. :house_with_garden:","padding:4px; background: #333; color: #fff");
+console.log("%cLorem ipsum dolor sit amet.","padding:4px; background: #333; color: #fff");
 // console.log("%cTake a look to the code on github : http://github.com/ivandaum/ivandaum","padding:3px; background: #000; color: #fff");
 console.log('');
